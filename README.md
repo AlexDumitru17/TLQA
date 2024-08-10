@@ -1,5 +1,5 @@
 # TimeLine based List Question Answering (TLQA)
 
 <p align="center">
-  <img src="TLQA.png" />
+  <img src="tlqa_1.png" />
 </p>
