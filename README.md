@@ -9,6 +9,5 @@
 ├── TLQA_data_splits
 │   ├── splits
 │   │   ├── test_split_benchmark_v0.0.json
-│   │   └── train_split_benchmark_v0.0.json
+│   │   |── train_split_benchmark_v0.0.json
         |── train_split_benchmark_v0.0.json
-└── README.md
