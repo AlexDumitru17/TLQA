@@ -4,6 +4,10 @@
   <img src="tlqa_2.png" />
 </p>
 
+# Data Collection pipeline
+<p align="center">
+  <img src="pipeline.png" />
+</p>
 ###  :file_folder: File Structure
 
 ```
