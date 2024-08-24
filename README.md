@@ -1,12 +1,12 @@
 # TimeLine based List Question Answering (TLQA)
 
 <p align="center">
-  <img src="tlqa_2.png" />
+  <img src="TLQA.png" />
 </p>
 
 # Data Collection pipeline
 <p align="center">
-  <img src="pipeline.png" />
+  <img src="pipeline_tlqa.png" />
 </p>
 
 ##  :file_folder: File Structure
