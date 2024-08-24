@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "dumpster-dip": "^2.0.0",
+    "pm2": "^5.3.1",
+    "wtf-plugin-classify": "^2.1.0",
+    "wtf-plugin-person": "^1.0.0",
+    "wtf-plugin-summary": "^1.0.0"
+  }
+}
