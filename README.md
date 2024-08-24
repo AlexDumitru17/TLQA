@@ -9,6 +9,10 @@
   <img src="pipeline_tlqa.png" />
 </p>
 
+# Reproducing Results on paper
+The files from different runs using models like gpt-40-mini, Mistral v0.2 and Llama are provided in evaluation/results
+
+The script evaluateResults.py in evaluation/ can be used to reproduce the numbers on the table and the plots.
 ##  :file_folder: File Structure
 
 ```
