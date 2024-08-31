@@ -8,9 +8,11 @@
 <p align="center">
   <img src="pipeline_tlqa.png" />
 </p>
+ 
+To reproduce data collection, run the files im `data_pipeline`. Run the files in this order: `tempLama.py`, `addWikiDataIDs.py`, `fetch_most_common_name.py`, `offices_parser.mjs`, `sport_parser.mjs`.
 
 # Reproducing Results on paper
-The files from different runs using models like gpt-40-mini, Mistral v0.2 and Llama are provided in evaluation/results
+Inference on the benchmark for multiple settings can be seen in folder `inference`. Experiments were done using `ollama` for open-weight models, and `litellm` for proprietary models. 
 
 The script evaluateResults.py in evaluation/ can be used to reproduce the numbers on the table and the plots.
 ##  :file_folder: File Structure
@@ -52,6 +54,10 @@ The script evaluateResults.py in evaluation/ can be used to reproduce the number
 │   ├── sport_parser.mjs
 │   ├── tempLama.py
 │   └── test.py
+├── inference
+│   ├── few_shot.py
+│   ├── rag_title_summary.
+│   └── rag_golden_evidence.py
 ├── evaluation
 │   └── evaluateResults.py
 ├── output.txt

@@ -14,7 +14,7 @@ relation_question_mapping = {
     "P127": "List all entities that owned {subject} from {start_year} to {end_year}."
 }
 
-file_names = {"templama_train.json", "templama_test.json", "templama_val.json"}
+file_names = {"data/templama_train.json", "data/templama_test.json", "data/templama_val.json"}
 
 
 def extract_subject(query):
@@ -46,7 +46,8 @@ for file_name in file_names:
                 grouped_data[query] = {
                     "query": query,
                     "subject": subject,
-                    "answers": {},  # Changed from list to dictionary
+                    "answers": {},  # Initialize to track years
+                    "ids": {},  # Initialize to track Wikidata IDs
                     "dates": [],
                     "relations": ''
                 }
@@ -55,13 +56,22 @@ for file_name in file_names:
             answers = json_obj["answer"]
             for answer in answers:
                 answer_name = answer['name']
+                answer_id = answer['wikidata_id']
+
+                # Ensure the answer_name key exists in both "answers" and "ids" dictionaries
                 if answer_name not in grouped_data[query]["answers"]:
                     grouped_data[query]["answers"][answer_name] = []  # Initialize list for years
-                grouped_data[query]["answers"][answer_name].append(year)  # Append year
+                    # grouped_data[query]["ids"][answer_name] = []  # Also initialize list for IDs here
 
+                # Now safely append the year and ID without risking a KeyError
+                grouped_data[query]["answers"][answer_name].append(year)
+                # if answer_id not in grouped_data[query]["ids"][answer_name]:
+                #     grouped_data[query]["ids"][answer_name].append(answer_id)
+                grouped_data[query]["ids"][answer_name] = answer_id
             grouped_data[query]["dates"].append(year)
             if grouped_data[query]["relations"] == '':
                 grouped_data[query]["relations"] = json_obj["relation"]
+
 
 # Generating listQAs from the combined dataset
 listqas = []
@@ -70,13 +80,14 @@ for query, data in grouped_data.items():
     if relation in relation_question_mapping:
         start_year = min(data["dates"])
         end_year = max(data["dates"])
+        ids_info = data["ids"]
         question = relation_question_mapping[relation].format(subject=data["subject"], start_year=start_year,
                                                               end_year=end_year)
 
         # Formatting answers with years
         answers_with_years = [f"{answer} ({', '.join(years)})" for answer, years in data["answers"].items()]
 
-        listqa = {"question": question, "answers": answers_with_years, "type": relation }
+        listqa = {"question": question, "answers": answers_with_years, "type": relation, "subject": data["subject"], "answer_ids": ids_info}
         listqas.append(listqa)
 
 # Writing the listQAs to a file
