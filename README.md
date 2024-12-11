@@ -15,7 +15,13 @@ To reproduce data collection, run the files im `data_pipeline`. Run the files in
 Inference on the benchmark for multiple settings can be seen in folder `inference`. Experiments were done using `ollama` for open-weight models, and `litellm` for proprietary models. 
 
 The script evaluateResults.py in evaluation/ can be used to reproduce the numbers on the table and the plots.
+
+# Corpus
+The title to infobox mapping can be downloaded here https://drive.google.com/drive/folders/1KyYiQEYob5SkK3zyUCXoPRT19dANy2-a?usp=sharing 
+
 ##  :file_folder: File Structure
+
+
 
 ```
 .
